@@ -316,7 +316,9 @@ function onKeyEvent(key, press) as Boolean
             end if
             return true
         else if key = "right"
-            if m.currentProgressBarState = 1
+            if m.currentProgressBarState = 0
+                m.top.toggleChat = true
+            else if m.currentProgressBarState = 1
                 m.currentProgressBarState = 4
                 m.controlButton.blendColor = "0xFFFFFFFF"
                 w = m.messagesButton.width

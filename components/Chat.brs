@@ -5,7 +5,7 @@ sub init()
     m.chat = CreateObject("roSGNode", "ChatTest")
     m.chat.observeField("nextComment", "onNewComment")
     m.chat.observeField("clientComment", "onNewComment")
-    m.top.observeField("visible", "onInvisible")
+    ' m.top.observeField("visible", "onInvisible")
     m.top.observeField("loggedInUsername", "setLoggedInUsername")
     m.chat.readyForNextComment = true
     m.chat.control = "run"
