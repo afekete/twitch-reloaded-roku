@@ -11,6 +11,7 @@
         <field id="doneFocus" type="Boolean" value="false" />
         <field id="clientInfo" type="assocarray" />
         <field id="clientMessage" type="string" value="" />
+        <field id="side" type="string" value="right" />
     </interface>
 
     <script type="text/brightscript" uri="pkg:/components/Chat.brs" />
@@ -18,6 +19,7 @@
     <children>
         
         <Rectangle
+            id="chatBackground"
             visible="true"
             color="0x18181BFF"
             width="250"
@@ -30,9 +32,11 @@
             color="0x00000000"
             width="250"
             height="720"
+            clippingRect="[0,0,250,750]"
             opacity="0.8"
             translation="[1030,0]" />
         <SimpleLabel
+            id="chatOK"
             translation="[1050,700]"
             text="Press OK to chat..."
             color="0xEFEFF1FF"

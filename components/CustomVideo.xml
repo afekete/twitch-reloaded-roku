@@ -8,6 +8,7 @@
         <field id="back" type="bool" value="false" />
         <field id="toggleChat" type="bool" value="false" />
         <field id="chatIsVisible" type="bool" />
+        <field id="chatSide" type="string" value="right" />
 
         <field id="channelAvatar" type="string" alwaysNotify="true" />
         <field id="channelUsername" type="string" />

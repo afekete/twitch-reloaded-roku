@@ -47,6 +47,7 @@ function init()
     m.top.observeField("state", "onvideoStateChange")
     m.top.observeField("channelAvatar", "onChannelAvatarChange")
     m.top.observeField("chatIsVisible", "onChatVisibilityChange")
+    m.top.observeField("chatSide", "onChatVisibilityChange")
 
     m.uiResolutionWidth = createObject("roDeviceInfo").GetUIResolution().width
     if m.uiResolutionWidth = 1920
@@ -73,7 +74,17 @@ function init()
 end function
 
 sub onChatVisibilityChange()
-    if m.top.chatIsVisible
+    if m.top.chatIsVisible and m.top.chatSide = "right"
+        m.progressBar.translation = [0,620]
+        m.progressBarBase.width = 816
+        'm.progressBarProgress.width = 810
+        m.glow.translation = [534, 32]
+        m.timeTravelButton.translation = [390, 51]
+        m.controlButton.translation = [476, 53]
+        m.messagesButton.translation = [552, 52]
+        m.timeDuration.translation = [814, 61]
+    else if m.top.chatIsVisible and m.top.chatSide = "left"
+        m.progressBar.translation = [250,620]
         m.progressBarBase.width = 816
         'm.progressBarProgress.width = 810
         m.glow.translation = [534, 32]
@@ -82,6 +93,7 @@ sub onChatVisibilityChange()
         m.messagesButton.translation = [552, 52]
         m.timeDuration.translation = [814, 61]
     else
+        m.progressBar.translation = [0,620]
         m.progressBarBase.width = 1200
         'm.progressBarProgress.width = 1200
         m.glow.translation = [692, 32]

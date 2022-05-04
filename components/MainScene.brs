@@ -461,8 +461,18 @@ end sub
 
 sub onToggleChat()
     if m.videoPlayer.toggleChat = true
-        m.chat.visible = not m.chat.visible
-        m.videoPlayer.chatIsVisible = m.chat.visible
+        if m.chat.visible = true and m.chat.side = "right"
+            m.chat.side = "left"
+            m.videoPlayer.chatSide = "left"
+        else if m.chat.visible = true and m.chat.side = "left"
+            m.chat.visible = false
+            m.videoPlayer.chatIsVisible = m.chat.visible
+        else if m.chat.visible = false
+            m.chat.side = "right"
+            m.videoPlayer.chatSide = "right"
+            m.chat.visible = true
+            m.videoPlayer.chatIsVisible = m.chat.visible
+        end if
         m.videoPlayer.toggleChat = false
     end if
 end sub

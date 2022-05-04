@@ -1,16 +1,31 @@
 sub init()
+    m.chatBackground = m.top.findNode("chatBackground")
     m.chatPanel = m.top.findNode("chatPanel")
+    m.chatOK = m.top.findNode("chatOK")
     m.keyboard = m.top.findNode("keyboard")
     m.chatButton = m.top.findNode("chatButton")
     m.chat = CreateObject("roSGNode", "ChatTest")
     m.chat.observeField("nextComment", "onNewComment")
     m.chat.observeField("clientComment", "onNewComment")
     ' m.top.observeField("visible", "onInvisible")
+    m.top.observeField("side", "setDisplaySide")
     m.top.observeField("loggedInUsername", "setLoggedInUsername")
     m.chat.readyForNextComment = true
     m.chat.control = "run"
     m.userstate_change = false
     m.translation = 0
+end sub
+
+sub setDisplaySide()
+    if m.top.side = "right"
+        m.chatBackground.translation = [1030,0]
+        m.chatPanel.translation = [1030,0]
+        m.chatOK.translation = [1050,700]
+    else if m.top.side = "left"
+        m.chatBackground.translation = [0,0]
+        m.chatPanel.translation = [0,0]
+        m.chatOK.translation = [20,700]
+    end if
 end sub
 
 sub onSetKeyboardFocus()

@@ -75,7 +75,7 @@
 
         <Group id="chatOption" translation="[100,300]" >
             <SimpleLabel 
-                text="Chat (click the Rewind button to toggle)"
+                text="Chat (click the Right button to toggle)"
                 visible="true" />
             <SimpleLabel 
                 id="chatInfo"
